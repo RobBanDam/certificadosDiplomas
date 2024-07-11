@@ -1,3 +1,16 @@
+<?php
+/* Llamando cadena de Conexion */
+	require_once("config/conexion.php");
+
+	if(isset($_POST["enviar"]) and $_POST["enviar"] === "si"){
+		require_once("models/Usuario.php");
+		/* Inicializando la clase */
+		$usuario = new Usuario();
+		$usuario->login();
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -43,19 +56,56 @@
 
 	<div class="d-flex align-items-center justify-content-center bg-br-primary ht-100v">
 
-		<div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white rounded shadow-base">
-			<div class="signin-logo tx-center tx-28 tx-bold tx-inverse"><span class="tx-normal"></span> Empresa <span class="tx-normal"></span></div>
-			<div class="tx-center mg-b-30">Genera Diplomas y Certificados</div>
+		<form action="" method="post">
+			<div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white rounded shadow-base">
 
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Ingrese su Correo Electrónico">
-			</div><!-- form-group -->
-			<div class="form-group">
-				<input type="password" class="form-control" placeholder="Ingrese su Contraseña">
-			</div><!-- form-group -->
-			<button type="submit" class="btn btn-info btn-block">Acceder</button>
+			<!-- Capturando mensaje de Error -->
+				<?php
+					if(isset($_GET["m"])){
+						switch($_GET["m"]){
+							case "1":
+								?>
+								<div class="alert alert-danger" role="alert">
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<strong class="d-block d-sm-inline-block-force">Error!</strong> Tu Correo ó Contraseña son Incorrectos.
+								</div><!-- alert -->
+								<?php
+							break;
 
-		</div><!-- login-wrapper -->
+							case "2":
+								?>
+									<div class="alert alert-danger" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										<strong class="d-block d-sm-inline-block-force">Error!</strong> Los campos no pueden ir vacíos.
+									</div><!-- alert -->
+								<?php
+							break;
+						}
+					}
+				?>
+
+				
+
+				<div class="signin-logo tx-center tx-28 tx-bold tx-inverse"><span class="tx-normal"></span> Empresa <span class="tx-normal"></span></div>
+				<div class="tx-center mg-b-30">Genera Diplomas y Certificados</div>
+
+				<div class="form-group">
+					<input type="text" id="usu_correo" name="usu_correo" class="form-control" placeholder="Ingrese su Correo Electrónico">
+				</div><!-- form-group -->
+				<div class="form-group">
+					<input type="password" id="usu_pass" name="usu_pass" class="form-control" placeholder="Ingrese su Contraseña">
+				</div><!-- form-group -->
+
+				<input type="hidden" name="enviar" class="form-control" value="si">
+				<button type="submit" class="btn btn-info btn-block">Acceder</button>
+
+			</div><!-- login-wrapper -->
+		</form>
+
 	</div><!-- d-flex -->
 
 	<script src="public/lib/jquery/jquery.js"></script>
