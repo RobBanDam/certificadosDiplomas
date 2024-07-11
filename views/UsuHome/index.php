@@ -1,3 +1,9 @@
+<?php
+	/* Llamado al archivo de conexion */
+	require_once("../../config/conexion.php");
+	if(isset($_SESSION["usu_id"])){
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -37,3 +43,10 @@
 </body>
 
 </html>
+
+<?php
+	}else{
+		/* Si no ha iniciado sesión, se redirecciona a ventana principal */
+		header("Location:" . Conectar::ruta() . "views/404");
+	}
+?>

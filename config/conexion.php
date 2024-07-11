@@ -1,4 +1,6 @@
 <?php
+    /* Inicializando la sesión del usuario */
+    session_start();
 
 /* Clase Conectar */
     class Conectar{
@@ -21,7 +23,7 @@
         }
 
         /* Ruta princp del proyecto */
-        public function ruta(){
+        public static function ruta(){
             return "http://localhost:3000/";
         }
     }
