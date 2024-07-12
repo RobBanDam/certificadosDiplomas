@@ -34,3 +34,6 @@
 
 <!-- Bracket CSS -->
 <link href="../../public/css/bracket.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../../public/lib/datatables/jquery.dataTables.css">
+<link rel="stylesheet" href="../../public/datatables/buttons.dataTables.min.css">
