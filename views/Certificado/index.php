@@ -12,16 +12,16 @@
 	<div class="ht-100v d-flex align-items-center justify-content-center">
 		<div class="wd-lg-70p wd-xl-50p tx-center pd-x-40">
 			<h1 class="tx-100 tx-xs-140 tx-normal tx-inverse tx-roboto mg-b-0">
-				<img src="../../public/certificado.png" class="img-fluid" alt="Imagen de Certificado">
+
+				<canvas id="canvas" height="650px" width="900px" class="img-fluid" alt="Imagen de Certificado"></canvas>
+
+				<!-- <img src="../../public/certificado.png" class="img-fluid" alt="Imagen de Certificado"> -->			
 			</h1>
 			
 			<br>
 
-			<p class="tx-16 mg-b-30">
-				The page you are looking for might have been removed, had its name changed,
-				or unavailable. Maybe you could try a search:
-				The page you are looking for might have been removed, had its name changed,
-				or unavailable. Maybe you could try a search:
+			<p class="tx-16 mg-b-30" id="cur_descrip">
+				
 			</p>
 
 			<div class="form-layout-footer">
@@ -33,7 +33,7 @@
 	</div><!-- ht-100v -->
 
 	<?php require_once("../html/MainJs.php") ;?>
-
+	<script type="text/javascript" src="certificado.js"></script>
 </body>
 
 </html>
